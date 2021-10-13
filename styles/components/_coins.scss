@@ -1,0 +1,61 @@
+.coins {
+    &-home {
+        @apply px-0;
+    }
+
+    &__header {
+        @apply flex items-center justify-between mb-5 px-4;
+
+        h2 {
+            @apply mb-0;
+        }
+
+        &-loadMore {
+            @apply min-w-max;
+        }
+    }
+
+    &__filter {
+        &-form {
+            @apply w-full;
+        }
+
+        &-input {
+            @apply block w-full pt-1 pb-2 px-2 hover:bg-opacity-70 transition-colors duration-500;
+        }
+    }
+
+    &__section {
+        @apply px-3;
+    }
+
+    &__lists {
+        @apply sm:grid gap-x-4 mt-8;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        grid-auto-rows: minmax(1rem, 1fr);
+    }
+
+    &__list {
+        @apply mx-auto w-full max-w-xs mb-10;
+
+        &-header {
+            @apply flex items-center justify-between border-b border-white border-opacity-20 py-2 px-3;
+        }
+        &-sec {
+            @apply px-3 py-4;
+
+            p {
+                @apply mb-1;
+            }
+            span {
+                @apply text-white-primary text-opacity-40 font-semibold text-lg inline-block pl-1;
+            }
+        }
+        article {
+            @apply h-full w-full;
+        }
+        a {
+            @apply border border-white border-opacity-20 rounded-md w-full shadow-2xl hover:shadow-md transition-all hover:scale-[1.01] duration-700 scale-95 h-full;
+        }
+    }
+}

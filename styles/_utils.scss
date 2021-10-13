@@ -1,0 +1,13 @@
+.homelogo {
+    @apply flex items-center justify-start hover:text-white-primary;
+    &__icon {
+        @apply mr-1;
+    }
+    &__text {
+        @apply text-xl pb-2 pl-1;
+    }
+}
+
+.intro {
+    @apply text-center mb-1 text-blue-secondary;
+}

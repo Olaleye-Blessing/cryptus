@@ -1,0 +1,38 @@
+.cryptoDetail {
+    &__header {
+        @apply text-center mb-5;
+    }
+
+    &__aside {
+        @apply px-3;
+    }
+
+    &__stats {
+        &-cont {
+            @apply flex flex-wrap;
+
+            section {
+                @apply w-full mb-10;
+                header {
+                    @apply text-center mb-2;
+                }
+            }
+        }
+
+        &-list {
+            @apply flex items-center justify-start mb-2;
+        }
+
+        &-link {
+            @apply flex items-center justify-start text-blue-secondary mt-1;
+        }
+
+        &-icon {
+            @apply mr-2 text-blue-secondary text-opacity-80;
+        }
+
+        &-value {
+            @apply ml-auto mr-2 text-white-primary font-semibold text-opacity-60 text-lg;
+        }
+    }
+}

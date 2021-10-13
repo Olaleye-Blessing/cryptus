@@ -1,0 +1,49 @@
+.home {
+    &__header {
+        @apply px-3 mt-8 mb-8;
+
+        &-para {
+            @apply mt-5 text-white-primary text-opacity-75;
+        }
+
+        &-fig {
+            @apply max-w-xs mx-auto;
+        }
+    }
+
+    &__features {
+        &-head {
+        }
+
+        &-lists {
+            @apply mt-2;
+        }
+        &-list {
+            @apply max-w-xs mx-auto text-center mb-7;
+
+            p {
+                @apply text-opacity-80 mt-3;
+            }
+        }
+    }
+
+    &__section {
+        &-head {
+            @apply max-w-xs text-center mx-auto;
+        }
+    }
+
+    &__stats {
+        @apply px-3 mt-3 mb-6 grid grid-cols-2 gap-y-5;
+
+        &-list {
+            @apply max-w-sm;
+            h4 {
+                @apply font-light text-white-primary text-opacity-70 mb-1 capitalize;
+            }
+            p {
+                @apply font-semibold text-xl;
+            }
+        }
+    }
+}

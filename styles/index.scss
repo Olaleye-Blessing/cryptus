@@ -1,0 +1,16 @@
+@import url(tailwindcss/base);
+@import url(tailwindcss/components);
+@import url(tailwindcss/utilities);
+
+@import url(./_base.scss);
+@import url(./_nav.scss);
+@import url(./pages/_index.scss);
+@import url(./components/_index.scss);
+@import url(./_utils.scss);
+
+@layer base {
+    a,
+    button {
+        @apply inline-block border-0 bg-transparent outline-none transition-colors duration-300 ease-in-out hover:text-blue-secondary;
+    }
+}
