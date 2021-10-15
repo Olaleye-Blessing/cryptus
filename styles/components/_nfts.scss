@@ -1,0 +1,43 @@
+.nfts {
+    @apply px-3 sm:flex sm:flex-wrap;
+    &__cont {
+        @apply max-w-6xl mx-auto mt-10;
+    }
+}
+
+.nft {
+    @apply mx-auto mb-6 w-full max-w-xs;
+
+    &__link {
+        @apply rounded-md border border-white-primary border-opacity-10 hover:text-current hover:border-opacity-40 w-full;
+    }
+
+    &__figure {
+        @apply flex-shrink-0 min-w-[1rem] w-full mx-auto mb-8;
+        &-img {
+        }
+    }
+
+    &__detail {
+        @apply py-2 px-4 w-full flex flex-col justify-center flex-1;
+
+        header {
+            h3 {
+                @apply text-center mb-5;
+            }
+        }
+
+        p {
+            @apply flex justify-between mb-3 flex-nowrap;
+
+            span {
+                &:first-child {
+                    @apply mr-auto;
+                }
+                &:last-child {
+                    @apply ml-3;
+                }
+            }
+        }
+    }
+}

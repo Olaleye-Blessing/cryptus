@@ -1,0 +1,49 @@
+.news {
+    @apply mt-6 sm:flex sm:flex-wrap;
+    &__cont {
+        @apply max-w-6xl mx-auto mt-10;
+    }
+    &-home {
+        @apply px-3;
+    }
+
+    &__list {
+        @apply mx-auto mb-6 max-w-sm;
+    }
+
+    &__link {
+        @apply hover:text-current border-b border-white border-opacity-30 pb-6 w-full h-full  hover:bg-black hover:bg-opacity-50 p-2 rounded-md;
+    }
+
+    &__header {
+        @apply flex justify-between mb-2;
+
+        h3 {
+            @apply mb-0;
+        }
+
+        figure {
+            @apply flex-shrink-0 ml-2;
+        }
+    }
+
+    &__description {
+        @apply text-white-primary text-opacity-80;
+    }
+
+    &__provider {
+        @apply flex mt-4 items-center justify-start flex-wrap space-y-1;
+
+        &-logo {
+            @apply flex items-center justify-center mr-1;
+        }
+
+        &-name {
+            @apply mr-auto;
+        }
+
+        &-time {
+            @apply text-xs;
+        }
+    }
+}

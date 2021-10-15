@@ -3,9 +3,10 @@ import Image from "next/image";
 import useSWR from "swr";
 
 import { cryptoFetcher } from "../services/coinRanking";
-import { Coins, HomeStats } from "../components";
+import { Coins, Exchanges, HomeStats, News, Nfts } from "../components";
 import { homeFeatures } from "../helpers/homeFeatures";
 import secured from "./../assests/svg/secured.svg";
+import { nftFetcher } from "../services/nfts";
 
 const Home: NextPage = () => {
     let { data, error: cryptoStatError } = useSWR<any>("/stats", cryptoFetcher);
@@ -31,7 +32,7 @@ const Home: NextPage = () => {
                     <Image src={secured} alt="" className="home__header-img" />
                 </figure>
             </header>
-            <main>
+            <main className="home">
                 <section className="home__features">
                     <header className="home__features-header">
                         <div className="intro">What We Serve</div>
@@ -62,8 +63,17 @@ const Home: NextPage = () => {
                     cryptoStatError={cryptoStatError}
                     cryptoStatLoading={cryptoStatLoading}
                 />
-                <section className="coins-home">
+                <section className="coins-home coins__cont">
                     <Coins numberOfCoins={10} showLoadMore={true} />
+                </section>
+                <section className="news-home news__cont">
+                    <News newsAmount={10} showLoadMore={true} />
+                </section>
+                <section className="nfts-home nfts__cont">
+                    <Nfts numberOfNfts={10} showLoadMore={true} />
+                </section>
+                <section className="exchanges-home exchanges__cont">
+                    <Exchanges numberOfExchanges={10} showLoadMore={true} />
                 </section>
             </main>
         </>

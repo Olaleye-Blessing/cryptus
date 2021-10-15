@@ -10,7 +10,9 @@
     },
     "dependencies": {
         "@types/react-icons": "^3.0.0",
+        "api": "^3.4.2",
         "axios": "^0.23.0",
+        "html-react-parser": "^1.4.0",
         "millify": "^4.0.0",
         "next": "11.1.2",
         "postcss-import": "^14.0.2",

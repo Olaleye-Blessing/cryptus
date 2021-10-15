@@ -4,7 +4,7 @@ import { Coins } from "../../components";
 const CryptoCurrencies: NextPage = () => {
     return (
         <>
-            <main>
+            <main className="coins__cont">
                 <Coins numberOfCoins={100} showLoadMore={false} />
             </main>
         </>

@@ -1,0 +1,52 @@
+.exchanges {
+    @apply border border-white border-opacity-10 rounded-md;
+    &__cont {
+        @apply max-w-6xl mx-auto mt-10;
+    }
+    &-home {
+        @apply px-3 mb-10;
+    }
+    &__header {
+        @apply pt-2 pb-4 px-2 border-b border-white border-opacity-10;
+    }
+}
+
+.exchange {
+    &-grid {
+        @apply grid gap-x-2;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+    &__cont {
+        @apply px-2 pt-2 pb-3 border-b border-white border-opacity-10 odd:bg-black odd:bg-opacity-30;
+    }
+
+    &__header {
+        & > p {
+            @apply flex items-center justify-start;
+        }
+
+        &-rank {
+            @apply flex flex-wrap items-center;
+
+            & > div {
+                @apply flex items-center justify-start mr-3;
+            }
+            figure {
+                @apply flex-shrink-0 mt-2 ml-1;
+            }
+        }
+
+        &-name {
+        }
+    }
+
+    &__description {
+        @apply h-0 overflow-hidden transition-all duration-300 ease-in-out mt-2;
+        a {
+            @apply text-blue-secondary;
+        }
+        &.show {
+            @apply h-full;
+        }
+    }
+}

@@ -46,3 +46,62 @@ export interface Stat {
     icon: IconType;
     link?: boolean;
 }
+
+export interface NewsArticleThumbnail {
+    _type: string;
+    contentUrl: string;
+    width: number;
+    height: number;
+}
+
+export interface NewsArticle {
+    name: string;
+    url: string;
+    description: string;
+    datePublished: string;
+    image: {
+        _type: string;
+        thumbnail: NewsArticleThumbnail;
+    };
+    provider: any[];
+}
+
+export interface Nft {
+    id: number;
+    assest_contract: {
+        address: string;
+        created_date: string;
+        description: string;
+    };
+    background_color: string | null;
+    creator: {
+        address: string;
+        config: string;
+        profile_img_url: string;
+        user?: {
+            username?: string;
+        };
+    };
+    name: string;
+    token_id: string | number;
+    permalink: string;
+    image_url: string;
+    collection: {
+        slug: string;
+    };
+}
+
+export interface Exchange {
+    description: string;
+    iconUrl: string;
+    id: number;
+    // lastTickerCreatedAt: 1634308945000;
+    marketShare: number;
+    name: string;
+    numberOfMarkets: number;
+    rank: number;
+    // uuid: "-zdvbieRdZ";
+    verified: boolean;
+    volume: number;
+    websiteUrl: string;
+}
