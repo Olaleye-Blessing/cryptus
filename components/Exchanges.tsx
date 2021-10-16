@@ -4,6 +4,7 @@ import { cryptoFetcher } from "../services/coinRanking";
 import Link from "next/link";
 import { Exchange } from ".";
 import { Exchange as ExchangeProps } from "./../typescript/Interfaces";
+import useFetch from "../hooks/useFetch";
 
 interface exchanges {
     numberOfExchanges: number;
@@ -38,15 +39,12 @@ const Exchanges: FC<exchanges> = ({ numberOfExchanges, showLoadMore }) => {
         }
     };
 
-    let { data, error }: any = useSWR<any>(
+    let { data, error, loading } = useFetch(
         `/exchanges?limit=${numberOfExchanges}`,
         cryptoFetcher
     );
 
-    let loading = !data && !error;
-
     let exchanges = data?.data?.exchanges;
-    console.log(exchanges);
 
     return (
         <>

@@ -7,11 +7,14 @@ import { Coins, Exchanges, HomeStats, News, Nfts } from "../components";
 import { homeFeatures } from "../helpers/homeFeatures";
 import secured from "./../assests/svg/secured.svg";
 import { nftFetcher } from "../services/nfts";
+import useFetch from "../hooks/useFetch";
 
 const Home: NextPage = () => {
-    let { data, error: cryptoStatError } = useSWR<any>("/stats", cryptoFetcher);
-
-    let cryptoStatLoading = !data && !cryptoStatError;
+    let {
+        data,
+        loading: cryptoStatLoading,
+        error: cryptoStatError,
+    } = useFetch("/stats", cryptoFetcher);
 
     let cryptoData = data?.data;
 

@@ -4,6 +4,7 @@ import useSWR from "swr";
 import { newsFetcher } from "../services/binfNews";
 import { NewsArticle } from ".";
 import { NewsArticle as NewsArticleProps } from "../typescript/Interfaces";
+import useFetch from "../hooks/useFetch";
 
 interface news {
     newsAmount: number;
@@ -11,12 +12,10 @@ interface news {
 }
 
 const News: FC<news> = ({ newsAmount, showLoadMore }) => {
-    let { data, error }: any = useSWR(
+    let { data, loading, error } = useFetch(
         `/search?q=crypto&count=${newsAmount}&freshness=Day&textFormat=Raw&safeSearch=Off`,
         newsFetcher
     );
-
-    let loading = !data && !error;
 
     let news = data?.value;
 

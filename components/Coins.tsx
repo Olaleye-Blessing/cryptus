@@ -6,6 +6,7 @@ import { cryptoFetcher } from "../services/coinRanking";
 import millify from "millify";
 import { Cryptocurrency } from ".";
 import { Cryptocurrency as ICrypto } from "../typescript/Interfaces";
+import useFetch from "../hooks/useFetch";
 
 interface coins {
     numberOfCoins: number;
@@ -13,14 +14,12 @@ interface coins {
 }
 
 const Coins: FC<coins> = ({ numberOfCoins, showLoadMore }) => {
-    let { data, error } = useSWR<any>(
+    const [searchTerm, setSearchTerm] = useState<string>("");
+
+    let { data, loading, error } = useFetch(
         `/coins?limit=${numberOfCoins}`,
         cryptoFetcher
     );
-
-    const [searchTerm, setSearchTerm] = useState<string>("");
-
-    let loading = !data && !error;
 
     let coins = data?.data.coins;
 
