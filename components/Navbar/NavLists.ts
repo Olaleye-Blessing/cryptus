@@ -27,7 +27,7 @@ export const NavLists: NavList[] = [
         text: "Exchanges",
         icon: RiExchangeBoxLine,
         activeIcon: RiExchangeBoxFill,
-        path: "/exchnages",
+        path: "/exchanges",
     },
     {
         text: "NFTs",
