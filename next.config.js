@@ -4,7 +4,6 @@ module.exports = {
     images: {
         domains: [
             "cdn.coinranking.com",
-            // "bing.com",
             "www.bing.com",
             "storage.googleapis.com",
             "lh3.googleusercontent.com",

@@ -1,5 +1,4 @@
 import { FC, MouseEvent, useRef } from "react";
-import useSWR from "swr";
 import { cryptoFetcher } from "../services/coinRanking";
 import Link from "next/link";
 import { Exchange } from ".";
@@ -14,10 +13,7 @@ interface exchanges {
 const Exchanges: FC<exchanges> = ({ numberOfExchanges, showLoadMore }) => {
     const exchangesRef = useRef<HTMLUListElement>(null);
 
-    const handleShowDetail = (
-        // e: MouseEvent<HTMLUListElement, globalThis.MouseEvent>
-        e: MouseEvent<HTMLUListElement>
-    ): void => {
+    const handleShowDetail = (e: MouseEvent<HTMLUListElement>): void => {
         let target = (e.target as Element).closest("li");
 
         // stop if non of the exchanges is clicked
@@ -31,10 +27,8 @@ const Exchanges: FC<exchanges> = ({ numberOfExchanges, showLoadMore }) => {
             // toggle show class if the current clicked element has show class. otherwise, remove
             if (target === exchange) {
                 description?.classList.toggle("show");
-                // description?.classList.toggle("h-0");
             } else {
                 description?.classList.remove("show");
-                // description?.classList.add("h-0");
             }
         }
     };
@@ -68,8 +62,6 @@ const Exchanges: FC<exchanges> = ({ numberOfExchanges, showLoadMore }) => {
                         ref={exchangesRef}
                         className="exchanges"
                         onClick={handleShowDetail}
-                        // onClick={(e) => {}}
-                        // onClick={(e) => {console.log(e)}}
                     >
                         <header className="exchanges__header exchange-grid">
                             <p>Exchanges</p>

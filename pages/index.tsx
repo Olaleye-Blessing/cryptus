@@ -1,12 +1,10 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import useSWR from "swr";
 
 import { cryptoFetcher } from "../services/coinRanking";
 import { Coins, Exchanges, HomeStats, News, Nfts } from "../components";
 import { homeFeatures } from "../helpers/homeFeatures";
 import secured from "./../assests/svg/secured.svg";
-import { nftFetcher } from "../services/nfts";
 import useFetch from "../hooks/useFetch";
 
 const Home: NextPage = () => {

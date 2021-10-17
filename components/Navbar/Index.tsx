@@ -9,16 +9,16 @@ import { LiProps } from "../../typescript/types";
 import { HomeLogo } from "./../index";
 
 const Index: FC = () => {
-    let navListsContRef: any = useRef(null);
+    let navListsContRef = useRef<HTMLDivElement>(null);
 
     let { pathname }: NextRouter = useRouter();
 
     const toggleNav = (e: MouseEvent<HTMLButtonElement>): void => {
-        navListsContRef.current.classList.toggle("nav__lists-cont-active");
+        navListsContRef.current?.classList.toggle("nav__lists-cont-active");
     };
 
     useEffect(() => {
-        navListsContRef.current.classList.remove("nav__lists-cont-active");
+        navListsContRef.current?.classList.remove("nav__lists-cont-active");
     }, [pathname]);
 
     return (

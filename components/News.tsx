@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Link from "next/link";
-import useSWR from "swr";
 import { newsFetcher } from "../services/binfNews";
 import { NewsArticle } from ".";
 import { NewsArticle as NewsArticleProps } from "../typescript/Interfaces";

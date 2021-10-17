@@ -28,12 +28,8 @@ const NewsArticle: FC<Props> = ({
     let newsThumbnail = image?.thumbnail?.contentUrl;
     let newsProvider: Provider = provider[0];
 
-    let {
-        name: newsNameProvider,
-        image: {
-            thumbnail: { contentUrl },
-        },
-    } = newsProvider;
+    let newsNameProvider = newsProvider.name;
+    let contentUrl = newsProvider?.image?.thumbnail?.contentUrl;
 
     // use default image if there is no thumbnail
     if (!newsThumbnail) {

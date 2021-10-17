@@ -1,22 +1,22 @@
 import { NextPage } from "next";
 import { NextRouter, useRouter } from "next/router";
-import useSWR from "swr";
 import { cryptoFetcher } from "../../services/coinRanking";
 import { CryptoStat } from "../../components";
 import { populateCryptoStat } from "../../helpers/populateCryptoStat";
 import { Stat } from "../../typescript/Interfaces";
+import useFetch from "../../hooks/useFetch";
 
 const CryptoDetail: NextPage = () => {
     let { query }: NextRouter = useRouter();
-    let coinId: string | string[] | undefined = query?.id;
+    let coinId: string | undefined | string[] = query?.id;
 
-    let { data: coinDetailData, error: coinDetailError }: any = useSWR(
-        coinId ? `/coin/${coinId}` : null,
-        cryptoFetcher
-    );
-    let coinDetailLoading: boolean = !coinDetailData && !coinDetailError;
+    let {
+        data,
+        error: coinDetailError,
+        loading: coinDetailLoading,
+    } = useFetch(coinId ? `/coin/${coinId}` : null, cryptoFetcher);
 
-    let coinDetail = coinDetailData?.data?.coin;
+    let coinDetail = data?.data?.coin;
 
     let coinStats: Stat[] = [],
         otherStats: Stat[] = [];

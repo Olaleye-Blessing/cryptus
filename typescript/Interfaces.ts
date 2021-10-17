@@ -12,11 +12,6 @@ export interface RapidBaseConfg {
     "x-rapidapi-key": string;
 }
 
-export interface AxiosRes {
-    status: string;
-    data: any;
-}
-
 export interface cryptodata {
     totalCoins: number;
     totalMarkets: number;

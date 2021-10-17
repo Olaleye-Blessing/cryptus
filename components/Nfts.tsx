@@ -1,9 +1,9 @@
 import { FC } from "react";
-import useSWR from "swr";
 import { nftFetcher } from "../services/nfts";
 import Link from "next/link";
 import { Nft } from ".";
 import useFetch from "../hooks/useFetch";
+import { Nft as NftProps } from "../typescript/Interfaces";
 
 interface nfts {
     numberOfNfts: number;
@@ -16,7 +16,7 @@ const Nfts: FC<nfts> = ({ numberOfNfts, showLoadMore }) => {
         nftFetcher
     );
 
-    let nfts: any[] = data?.assets;
+    let nfts: NftProps[] = data?.assets;
 
     return (
         <>

@@ -1,7 +1,6 @@
 import useSWR from "swr";
 
-const useFetch = (url: string, fetcher: any) => {
-    // console.log({ url });
+const useFetch = (url: string | null, fetcher: any) => {
     let { data, error } = useSWR(url, fetcher);
 
     let loading: boolean = !data && !error;
