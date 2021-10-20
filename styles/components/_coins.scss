@@ -1,23 +1,15 @@
 .coins {
+    /*
     &-home {
         @apply px-0;
     }
+    */
 
+    /*
     &__cont {
         @apply max-w-6xl mx-auto mt-10;
     }
-
-    &__header {
-        @apply flex items-center justify-between mb-5 px-4;
-
-        h2 {
-            @apply mb-0;
-        }
-
-        &-loadMore {
-            @apply min-w-max;
-        }
-    }
+    */
 
     &__filter {
         &-form {
@@ -30,7 +22,6 @@
     }
 
     &__section {
-        @apply px-3;
     }
 
     &__lists {

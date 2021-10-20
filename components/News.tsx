@@ -21,14 +21,14 @@ const News: FC<news> = ({ newsAmount, showLoadMore }) => {
     return (
         <>
             <header
-                className={`coins__header ${
+                className={`news__header-main ${
                     showLoadMore ? "" : "flex-wrap space-y-5"
                 }`}
             >
                 <h2>Latest Crypto News</h2>
                 {showLoadMore && (
                     <Link href="/news">
-                        <a className="coins__header-loadMore">Load More</a>
+                        <a className="news__header-main-loadMore">Load More</a>
                     </Link>
                 )}
             </header>

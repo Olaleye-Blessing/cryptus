@@ -1,11 +1,5 @@
 .news {
     @apply mt-6 sm:flex sm:flex-wrap;
-    &__cont {
-        @apply max-w-6xl mx-auto mt-10;
-    }
-    &-home {
-        @apply px-3;
-    }
 
     &__list {
         @apply mx-auto mb-6 max-w-sm;

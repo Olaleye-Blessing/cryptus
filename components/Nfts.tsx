@@ -21,7 +21,7 @@ const Nfts: FC<nfts> = ({ numberOfNfts, showLoadMore }) => {
     return (
         <>
             <header
-                className={`coins__header ${
+                className={`nfts__header ${
                     showLoadMore ? "" : "flex-wrap space-y-5"
                 }`}
             >
@@ -30,7 +30,7 @@ const Nfts: FC<nfts> = ({ numberOfNfts, showLoadMore }) => {
                 </h2>
                 {showLoadMore && (
                     <Link href="/news">
-                        <a className="coins__header-loadMore">Load More</a>
+                        <a className="nfts__header-loadMore">Load More</a>
                     </Link>
                 )}
             </header>

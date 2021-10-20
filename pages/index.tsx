@@ -5,6 +5,7 @@ import { cryptoFetcher } from "../services/coinRanking";
 import { Coins, Exchanges, HomeStats, News, Nfts } from "../components";
 import { homeFeatures } from "../helpers/homeFeatures";
 import secured from "./../assests/svg/secured.svg";
+import homeBg from "./../assests/svg/home_header.svg";
 import useFetch from "../hooks/useFetch";
 
 const Home: NextPage = () => {
@@ -15,23 +16,19 @@ const Home: NextPage = () => {
     } = useFetch("/stats", cryptoFetcher);
 
     let cryptoData = data?.data;
+    console.log({ cryptoStatError });
 
     return (
         <>
             <header className="home__header">
-                <div>
-                    <h1 className="home__header-head">
-                        Let&apos;s Make Better Life With New{" "}
-                        <span className="text-blue-secondary">Currency</span>
-                    </h1>
-                    <p className="home__header-para">
-                        Get real time monitoring cruptocurrency and help grow
-                        your currency easily
-                    </p>
-                </div>
-                <figure className="home__header-fig">
-                    <Image src={secured} alt="" className="home__header-img" />
-                </figure>
+                <h1 className="home__header-head">
+                    Let&apos;s Make Better Life With New{" "}
+                    <span className="text-blue-secondary">Currency</span>
+                </h1>
+                <p className="home__header-para">
+                    Get real time monitoring cruptocurrency and help grow your
+                    currency easily
+                </p>
             </header>
             <main className="home">
                 <section className="home__features">
@@ -44,15 +41,7 @@ const Home: NextPage = () => {
                     <ul className="home__features-lists">
                         {homeFeatures.map(({ header, text, img }) => (
                             <li key={header} className="home__features-list">
-                                <figure className="home__features-fig">
-                                    <Image
-                                        src={img}
-                                        alt=""
-                                        layout="responsive"
-                                        width={30}
-                                        height={30}
-                                    />
-                                </figure>
+                                <figure className="home__features-fig"></figure>
                                 <h3>{header}</h3>
                                 <p>{text}</p>
                             </li>
@@ -64,17 +53,25 @@ const Home: NextPage = () => {
                     cryptoStatError={cryptoStatError}
                     cryptoStatLoading={cryptoStatLoading}
                 />
-                <section className="coins-home coins__cont">
-                    <Coins numberOfCoins={10} showLoadMore={true} />
+                <section className="home__coins coins__cont">
+                    <div className="home__section-cont">
+                        <Coins numberOfCoins={10} showLoadMore={true} />
+                    </div>
                 </section>
-                <section className="news-home news__cont">
-                    <News newsAmount={10} showLoadMore={true} />
+                <section className="home__news news__cont">
+                    <div className="home__section-cont">
+                        <News newsAmount={10} showLoadMore={true} />
+                    </div>
                 </section>
-                <section className="nfts-home nfts__cont">
-                    <Nfts numberOfNfts={10} showLoadMore={true} />
+                <section className="home__nfts nfts__cont">
+                    <div className="home__section-cont">
+                        <Nfts numberOfNfts={10} showLoadMore={true} />
+                    </div>
                 </section>
-                <section className="exchanges-home exchanges__cont">
-                    <Exchanges numberOfExchanges={10} showLoadMore={true} />
+                <section className="home__exchanges exchanges__cont">
+                    <div className="home__section-cont">
+                        <Exchanges numberOfExchanges={10} showLoadMore={true} />
+                    </div>
                 </section>
             </main>
         </>

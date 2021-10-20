@@ -43,14 +43,14 @@ const Exchanges: FC<exchanges> = ({ numberOfExchanges, showLoadMore }) => {
     return (
         <>
             <header
-                className={`coins__header ${
+                className={`exchanges__header ${
                     showLoadMore ? "" : "flex-wrap space-y-5"
                 }`}
             >
-                <h2>Latest Crypto News</h2>
+                <h2>Top {numberOfExchanges} exchanges </h2>
                 {showLoadMore && (
                     <Link href="/news">
-                        <a className="coins__header-loadMore">Load More</a>
+                        <a className="exchanges__header-loadMore">Load More</a>
                     </Link>
                 )}
             </header>

@@ -1,13 +1,18 @@
 .home {
     & > * {
-        @apply mb-16;
+        @apply py-10;
+
+        &:nth-child(odd) {
+            @apply bg-black bg-opacity-40;
+        }
     }
     &__header {
-        @apply px-3 mt-8 mb-14 flex items-center justify-between flex-wrap sm:px-5 md:px-10 lg:px-20 md:justify-center;
+        @apply px-3 sm:px-5 md:px-10 lg:px-20 md:justify-center;
 
-        & > div {
-            @apply max-w-xs lg:max-w-md md:ml-auto;
-        }
+        @apply min-h-[calc(100vh-64px)] flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat;
+
+        background-image: url(../public/gifs/homeHeader.gif);
+        clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
 
         &-para {
             @apply mt-5 text-white-primary text-opacity-75;
@@ -19,7 +24,10 @@
     }
 
     &__features {
-        &-head {
+        @apply pt-52 pb-10 -mt-44;
+
+        &-header {
+            @apply mb-10;
         }
 
         &-lists {
@@ -27,14 +35,37 @@
         }
         &-list {
             @apply max-w-xs mx-auto text-center mb-7;
+            @apply w-full;
+
+            &:first-child {
+                figure {
+                    background-image: url(../assests/svg/available.svg);
+                }
+            }
+            &:nth-child(2) {
+                figure {
+                    background-image: url(../assests/svg/secured.svg);
+                }
+            }
+            &:nth-child(3) {
+                figure {
+                    background-image: url(../assests/svg/organized.svg);
+                }
+            }
 
             p {
                 @apply text-opacity-80 mt-3;
             }
         }
+        &-fig {
+            @apply w-56 h-56 mx-auto bg-no-repeat bg-cover bg-center mb-8;
+        }
     }
 
     &__section {
+        &-cont {
+            @apply w-10/12 mx-auto max-w-7xl;
+        }
         &-head {
             @apply max-w-xs text-center mx-auto;
         }
@@ -42,6 +73,12 @@
 
     &__stats {
         @apply px-3 mt-3 mb-6 grid grid-cols-2 gap-y-5 max-w-3xl mx-auto;
+        &-cont {
+            /*
+            @apply pt-36 pb-20;
+            clip-path: polygon(0 25%, 100% 0, 100% 75%, 0% 100%);
+            */
+        }
 
         &-list {
             @apply max-w-sm w-full text-center;
@@ -52,5 +89,31 @@
                 @apply font-semibold text-xl;
             }
         }
+    }
+
+    &__coins {
+        /*
+        @apply pt-10;
+        */
+    }
+
+    &__news {
+        /*
+        @apply pt-32 pb-28;
+        clip-path: polygon(0 3%, 100% 0, 100% 97%, 0% 100%);
+        */
+    }
+
+    &__nfts {
+        /*
+        @apply pt-10;
+        */
+    }
+
+    &__exchanges {
+        /*
+        @apply pt-24;
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+        */
     }
 }

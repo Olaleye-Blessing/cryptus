@@ -1,14 +1,5 @@
 .exchanges {
     @apply border border-white border-opacity-10 rounded-md;
-    &__cont {
-        @apply max-w-6xl mx-auto mt-10;
-    }
-    &-home {
-        @apply px-3 mb-10;
-    }
-    &__header {
-        @apply pt-2 pb-4 px-2 border-b border-white border-opacity-10;
-    }
 }
 
 .exchange {
