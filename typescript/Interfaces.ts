@@ -100,3 +100,10 @@ export interface Exchange {
     volume: number;
     websiteUrl: string;
 }
+
+export interface CoinHistory {
+    change: string;
+    history: { price: number | string; timestamp: string }[];
+}
+
+export interface CoinTimeFrame {}

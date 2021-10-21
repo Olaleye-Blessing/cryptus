@@ -13,7 +13,7 @@
 
     &__filter {
         &-form {
-            @apply w-full;
+            @apply w-full max-w-xs ml-auto;
         }
 
         &-input {

@@ -1,6 +1,32 @@
+.coins {
+    &-page {
+        @apply px-3 sm:px-5 md:px-10 lg:px-20;
+
+        & > header {
+            @apply space-y-5;
+        }
+    }
+}
 .cryptoDetail {
+    @apply px-3;
+    @apply px-3 py-3 sm:px-5 md:px-10 lg:px-20;
+
     &__header {
         @apply text-center mb-5;
+    }
+
+    &__timeframe {
+        @apply flex items-center justify-start space-x-3;
+        button {
+            @apply pt-1 pb-2 px-2 rounded-sm text-white-primary text-opacity-95 hover:text-blue-secondary;
+            &.active {
+                @apply text-blue-secondary;
+            }
+        }
+    }
+
+    &__graph {
+        @apply mt-7 mb-10;
     }
 
     &__aside {
@@ -9,10 +35,10 @@
 
     &__stats {
         &-cont {
-            @apply flex flex-wrap;
+            @apply flex flex-wrap justify-around;
 
             section {
-                @apply w-full mb-10;
+                @apply w-full max-w-sm mb-10;
                 header {
                     @apply text-center mb-2;
                 }
