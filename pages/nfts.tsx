@@ -1,11 +1,12 @@
 import { FC } from "react";
+import { Nfts } from "../components";
 
 const nfts: FC = () => {
     return (
         <>
-            <header>
-                <h1>NFTS Page</h1>
-            </header>
+            <main className="nfts-page">
+                <Nfts numberOfNfts={50} showLoadMore={false} />
+            </main>
         </>
     );
 };
