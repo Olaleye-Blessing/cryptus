@@ -1,11 +1,12 @@
 import { FC } from "react";
+import { Exchanges } from "../components";
 
 const exchanges: FC = () => {
     return (
         <>
-            <header>
-                <h1>Exchanges Page</h1>
-            </header>
+            <main className="exchanges-page">
+                <Exchanges numberOfExchanges={100} showLoadMore={false} />
+            </main>
         </>
     );
 };
