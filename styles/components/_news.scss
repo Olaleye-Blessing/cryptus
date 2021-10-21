@@ -1,6 +1,10 @@
 .news {
     @apply mt-6 sm:flex sm:flex-wrap;
 
+    &-page {
+        @apply px-3 mt-5 mb-10 sm:px-5 md:px-10 lg:px-20;
+    }
+
     &__list {
         @apply mx-auto mb-6 max-w-sm;
     }
