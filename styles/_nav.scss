@@ -4,7 +4,7 @@
     &__lists {
         @apply sm:flex sm:items-center sm:justify-center;
         &-cont {
-            @apply bg-blue-primary absolute top-14 left-0 right-0 px-3 h-0 overflow-hidden transition-all duration-500 ease-out sm:static sm:h-auto sm:flex-1 sm:max-w-2xl sm:ml-auto;
+            @apply bg-blue-primary absolute top-14 left-0 right-0 px-3 h-0 overflow-hidden transition-all duration-500 ease-out z-[1000] sm:static sm:h-auto sm:flex-1 sm:max-w-2xl sm:ml-auto;
 
             &.nav__lists-cont-active {
                 @apply h-48 sm:h-auto;

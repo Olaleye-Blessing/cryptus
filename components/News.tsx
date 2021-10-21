@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Link from "next/link";
-import useSWR from "swr";
 import { newsFetcher } from "../services/binfNews";
 import { NewsArticle } from ".";
 import { NewsArticle as NewsArticleProps } from "../typescript/Interfaces";
+import useFetch from "../hooks/useFetch";
 
 interface news {
     newsAmount: number;
@@ -11,26 +11,24 @@ interface news {
 }
 
 const News: FC<news> = ({ newsAmount, showLoadMore }) => {
-    let { data, error }: any = useSWR(
+    let { data, loading, error } = useFetch(
         `/search?q=crypto&count=${newsAmount}&freshness=Day&textFormat=Raw&safeSearch=Off`,
         newsFetcher
     );
-
-    let loading = !data && !error;
 
     let news = data?.value;
 
     return (
         <>
             <header
-                className={`coins__header ${
+                className={`news__header-main ${
                     showLoadMore ? "" : "flex-wrap space-y-5"
                 }`}
             >
                 <h2>Latest Crypto News</h2>
                 {showLoadMore && (
                     <Link href="/news">
-                        <a className="coins__header-loadMore">Load More</a>
+                        <a className="news__header-main-loadMore">Load More</a>
                     </Link>
                 )}
             </header>

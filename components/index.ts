@@ -11,3 +11,5 @@ export { default as Nfts } from "./Nfts";
 export { default as Nft } from "./Nft";
 export { default as Exchanges } from "./Exchanges";
 export { default as Exchange } from "./Exchange";
+export { default as CoinHistory } from "./CoinHistory";
+export { default as LineChart } from "./LineChart";

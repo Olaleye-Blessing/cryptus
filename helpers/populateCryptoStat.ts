@@ -8,8 +8,8 @@ import { Stat } from "../typescript/Interfaces";
 
 export const populateCryptoStat = (
     coinDetail: any,
-    coinStats: any[],
-    otherStats: any[]
+    coinStats: Stat[],
+    otherStats: Stat[]
 ): { coinStats: Stat[]; otherStats: Stat[] } => {
     coinStats = [
         { "text": "Rank", icon: GiRank3, value: coinDetail.rank },

@@ -7,10 +7,23 @@
 @import url(./pages/_index.scss);
 @import url(./components/_index.scss);
 @import url(./_utils.scss);
+@import url(./_form.scss);
 
 @layer base {
     a,
     button {
         @apply inline-block border-0 bg-transparent outline-none transition-colors duration-300 ease-in-out hover:text-blue-secondary;
+    }
+
+    select {
+        @apply block rounded-md m-0 w-full pt-1 pb-2 px-3 text-blue-primary;
+
+        -webkit-appearance: none;
+        appearance: none;
+        /*
+        box-shadow: inset 1px 1px 3px #ccc;
+        */
+        font-family: inherit;
+        font-size: 100%;
     }
 }

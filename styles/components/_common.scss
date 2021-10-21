@@ -1,0 +1,27 @@
+.coins,
+.nfts,
+.exchanges {
+    &__header {
+        @apply flex items-center justify-between mb-5;
+
+        h2 {
+            @apply mb-0;
+        }
+
+        &-loadMore {
+            @apply min-w-max;
+        }
+    }
+}
+
+.news__header-main {
+    @apply flex items-center justify-between mb-5;
+
+    h2 {
+        @apply mb-0;
+    }
+
+    &-loadMore {
+        @apply min-w-max;
+    }
+}

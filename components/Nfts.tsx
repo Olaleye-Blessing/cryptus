@@ -1,8 +1,9 @@
 import { FC } from "react";
-import useSWR from "swr";
 import { nftFetcher } from "../services/nfts";
 import Link from "next/link";
 import { Nft } from ".";
+import useFetch from "../hooks/useFetch";
+import { Nft as NftProps } from "../typescript/Interfaces";
 
 interface nfts {
     numberOfNfts: number;
@@ -10,20 +11,17 @@ interface nfts {
 }
 
 const Nfts: FC<nfts> = ({ numberOfNfts, showLoadMore }) => {
-    let { data, error } = useSWR<any>(
+    let { data, error, loading } = useFetch(
         `/assets?order_direction=desc&offset=0&limit=${numberOfNfts}`,
         nftFetcher
     );
 
-    let nfts: any[] = data?.assets;
-    console.log(nfts);
+    let nfts: NftProps[] = data?.assets;
 
-    let loadng = !data && !error;
-    // https://storage.googleapis.com/opensea-static/opensea-profile/29.png
     return (
         <>
             <header
-                className={`coins__header ${
+                className={`nfts__header ${
                     showLoadMore ? "" : "flex-wrap space-y-5"
                 }`}
             >
@@ -32,12 +30,12 @@ const Nfts: FC<nfts> = ({ numberOfNfts, showLoadMore }) => {
                 </h2>
                 {showLoadMore && (
                     <Link href="/news">
-                        <a className="coins__header-loadMore">Load More</a>
+                        <a className="nfts__header-loadMore">Load More</a>
                     </Link>
                 )}
             </header>
             <section>
-                {loadng && <div>Loading...</div>}
+                {loading && <div>Loading...</div>}
                 {error && <div>There is an error</div>}
                 {nfts && (
                     <ul className="nfts">

@@ -15,7 +15,6 @@ const Nft: FC<Props> = ({
     image_url,
     collection,
 }) => {
-    console.log("");
     let username = creator?.user?.username || "Unknown";
     return (
         <Link href={permalink}>
@@ -27,7 +26,6 @@ const Nft: FC<Props> = ({
                         width={100}
                         height={100}
                         layout="responsive"
-                        // layout="fill"
                         objectFit="cover"
                         className="nft__figure-img"
                     />
