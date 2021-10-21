@@ -42,7 +42,7 @@ const Nft: FC<Props> = ({
                                 e.preventDefault();
 
                                 window.open(
-                                    "https://www.nairaland.com",
+                                    `https://opensea.io/${username}`,
                                     "_blank"
                                 );
                             }}

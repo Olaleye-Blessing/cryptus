@@ -1,11 +1,12 @@
 import { FC } from "react";
+import { News } from "../components";
 
 const news: FC = () => {
     return (
         <>
-            <header>
-                <h1>News Page</h1>
-            </header>
+            <main className="news-page">
+                <News newsAmount={100} showLoadMore={false} />
+            </main>
         </>
     );
 };

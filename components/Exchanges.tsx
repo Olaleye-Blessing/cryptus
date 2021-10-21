@@ -49,7 +49,7 @@ const Exchanges: FC<exchanges> = ({ numberOfExchanges, showLoadMore }) => {
             >
                 <h2>Top {numberOfExchanges} exchanges </h2>
                 {showLoadMore && (
-                    <Link href="/news">
+                    <Link href="/exchanges">
                         <a className="exchanges__header-loadMore">Load More</a>
                     </Link>
                 )}
@@ -63,7 +63,7 @@ const Exchanges: FC<exchanges> = ({ numberOfExchanges, showLoadMore }) => {
                         className="exchanges"
                         onClick={handleShowDetail}
                     >
-                        <header className="exchanges__header exchange-grid">
+                        <header className="exchanges__header-list exchange-grid">
                             <p>Exchanges</p>
                             <p>24h Trade Volume</p>
                             <p>Markets</p>

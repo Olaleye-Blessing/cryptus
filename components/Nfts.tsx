@@ -17,6 +17,7 @@ const Nfts: FC<nfts> = ({ numberOfNfts, showLoadMore }) => {
     );
 
     let nfts: NftProps[] = data?.assets;
+    console.log(nfts && nfts[0]);
 
     return (
         <>
