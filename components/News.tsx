@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Link from "next/link";
-import { newsFetcher } from "../services/binfNews";
 import { NewsArticle } from ".";
 import { NewsArticle as NewsArticleProps } from "../typescript/Interfaces";
 import useFetch from "../hooks/useFetch";
+import { bingNewsConfig } from "../services/binfNews";
 
 interface news {
     newsAmount: number;
@@ -13,7 +13,7 @@ interface news {
 const News: FC<news> = ({ newsAmount, showLoadMore }) => {
     let { data, loading, error } = useFetch(
         `/search?q=crypto&count=${newsAmount}&freshness=Day&textFormat=Raw&safeSearch=Off`,
-        newsFetcher
+        bingNewsConfig
     );
 
     let news = data?.value;

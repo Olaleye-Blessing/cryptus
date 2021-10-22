@@ -2,11 +2,11 @@ import { NextPage } from "next";
 import { NextRouter, useRouter } from "next/router";
 import { useState } from "react";
 
-import { cryptoFetcher } from "../../services/coinRanking";
 import { CryptoStat, CoinHistory } from "../../components";
 import { populateCryptoStat } from "../../helpers/populateCryptoStat";
 import { Stat } from "../../typescript/Interfaces";
 import useFetch from "../../hooks/useFetch";
+import { coinRankingConfig } from "../../services/coinRanking";
 
 const CryptoDetail: NextPage = () => {
     let { query }: NextRouter = useRouter();
@@ -18,7 +18,7 @@ const CryptoDetail: NextPage = () => {
         data,
         error: coinDetailError,
         loading: coinDetailLoading,
-    } = useFetch(coinId ? `/coin/${coinId}` : null, cryptoFetcher);
+    } = useFetch(coinId ? `/coin/${coinId}` : null, coinRankingConfig);
 
     let {
         data: coinHistory,
@@ -26,7 +26,7 @@ const CryptoDetail: NextPage = () => {
         error: coinHistoryError,
     } = useFetch(
         coinId ? `/coin/${coinId}/history/${selectedTimeFrame}` : null,
-        cryptoFetcher
+        coinRankingConfig
     );
 
     let timeframe: string[] = [

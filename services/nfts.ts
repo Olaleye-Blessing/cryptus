@@ -1,11 +1,6 @@
-import axios, { AxiosInstance } from "axios";
+import { AxiosRequestConfig } from "axios";
 
-export const nfts: AxiosInstance = axios.create({
+export const nftConfig: AxiosRequestConfig = {
+    method: "get",
     baseURL: "https://api.opensea.io/api/v1",
-});
-
-export const nftFetcher = (url: string) =>
-    nfts
-        .get(url)
-        .then((res) => res.data)
-        .catch((e) => e);
+};

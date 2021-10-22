@@ -1,9 +1,9 @@
 import { ChangeEvent, FC, useState } from "react";
 import Link from "next/link";
-import { cryptoFetcher } from "../services/coinRanking";
 import { Cryptocurrency } from ".";
 import { Cryptocurrency as ICrypto } from "../typescript/Interfaces";
 import useFetch from "../hooks/useFetch";
+import { coinRankingConfig } from "../services/coinRanking";
 
 interface coins {
     numberOfCoins: number;
@@ -15,7 +15,7 @@ const Coins: FC<coins> = ({ numberOfCoins, showLoadMore }) => {
 
     let { data, loading, error } = useFetch(
         `/coins?limit=${numberOfCoins}`,
-        cryptoFetcher
+        coinRankingConfig
     );
 
     let coins: ICrypto[] = data?.data.coins;
@@ -61,6 +61,7 @@ const Coins: FC<coins> = ({ numberOfCoins, showLoadMore }) => {
             </header>
             <section className="coins__section">
                 {loading && <div>Loading....</div>}
+                {error && <div>There is an error...</div>}
                 {coins ? (
                     coins.length > 0 ? (
                         <ul className="coins__lists">

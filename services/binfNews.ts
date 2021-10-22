@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestHeaders } from "axios";
+import { AxiosRequestConfig, AxiosRequestHeaders } from "axios";
 
 let headers: AxiosRequestHeaders = {
     "x-bingapis-sdk": "true",
@@ -6,13 +6,8 @@ let headers: AxiosRequestHeaders = {
     "x-rapidapi-key": String(process.env.NEXT_PUBLIC_X_RAPIDAPI_KEY),
 };
 
-export const bingNews: AxiosInstance = axios.create({
-    baseURL: "https://bing-news-search1.p.rapidapi.com/news",
+export const bingNewsConfig: AxiosRequestConfig = {
+    method: "get",
     headers,
-});
-
-export const newsFetcher = (url: string) =>
-    bingNews
-        .get(url)
-        .then((res) => res.data)
-        .catch((e) => e);
+    baseURL: "https://bing-news-search1.p.rapidapi.com/news",
+};

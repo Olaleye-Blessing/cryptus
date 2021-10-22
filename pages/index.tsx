@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 
-import { cryptoFetcher } from "../services/coinRanking";
+import { coinRankingConfig } from "../services/coinRanking";
 import { Coins, Exchanges, HomeStats, News, Nfts } from "../components";
 import { homeFeatures } from "../helpers/homeFeatures";
 import secured from "./../assests/svg/secured.svg";
@@ -13,10 +13,9 @@ const Home: NextPage = () => {
         data,
         loading: cryptoStatLoading,
         error: cryptoStatError,
-    } = useFetch("/stats", cryptoFetcher);
+    } = useFetch("/stats", coinRankingConfig);
 
     let cryptoData = data?.data;
-    console.log({ cryptoStatError });
 
     return (
         <>

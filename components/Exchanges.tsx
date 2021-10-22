@@ -1,9 +1,9 @@
 import { FC, MouseEvent, useRef } from "react";
-import { cryptoFetcher } from "../services/coinRanking";
 import Link from "next/link";
 import { Exchange } from ".";
 import { Exchange as ExchangeProps } from "./../typescript/Interfaces";
 import useFetch from "../hooks/useFetch";
+import { coinRankingConfig } from "../services/coinRanking";
 
 interface exchanges {
     numberOfExchanges: number;
@@ -35,7 +35,7 @@ const Exchanges: FC<exchanges> = ({ numberOfExchanges, showLoadMore }) => {
 
     let { data, error, loading } = useFetch(
         `/exchanges?limit=${numberOfExchanges}`,
-        cryptoFetcher
+        coinRankingConfig
     );
 
     let exchanges = data?.data?.exchanges;
