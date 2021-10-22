@@ -9,11 +9,6 @@ import homeBg from "./../assests/svg/home_header.svg";
 import useFetch from "../hooks/useFetch";
 
 const Home: NextPage = () => {
-    // let {
-    //     data,
-    //     loading: cryptoStatLoading,
-    //     error: cryptoStatError,
-    // } = useFetch("/stats", cryptoFetcher);
     let {
         data,
         loading: cryptoStatLoading,
@@ -21,7 +16,6 @@ const Home: NextPage = () => {
     } = useFetch("/stats", coinRankingConfig);
 
     let cryptoData = data?.data;
-    console.log({ cryptoStatError });
 
     return (
         <>

@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import useSWR from "swr";
 
-const useFetch = (fetchUrl: string, config: AxiosRequestConfig) => {
+const useFetch = (fetchUrl: string | null, config: AxiosRequestConfig) => {
     let fetcher = (url: string) =>
         axios({ url, ...config })
             .then((res: AxiosResponse) => res.data)
