@@ -3,7 +3,7 @@ import { FC } from "react";
 
 interface homestats {
     cryptoStatLoading: boolean;
-    cryptoStatError: string;
+    cryptoStatError: any;
     cryptoData: any;
 }
 
