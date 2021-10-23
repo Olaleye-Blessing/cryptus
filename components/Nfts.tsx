@@ -29,7 +29,7 @@ const Nfts: FC<nfts> = ({ numberOfNfts, showLoadMore }) => {
                     Some Nfts(<span className="text-sm">from opensea</span>)
                 </h2>
                 {showLoadMore && (
-                    <Link href="/news">
+                    <Link href="/nfts">
                         <a className="nfts__header-loadMore">Load More</a>
                     </Link>
                 )}
