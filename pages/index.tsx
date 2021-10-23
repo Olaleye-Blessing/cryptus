@@ -13,7 +13,10 @@ const Home: NextPage = () => {
         data,
         loading: cryptoStatLoading,
         error: cryptoStatError,
-    } = useFetch("/stats", coinRankingConfig);
+    } = useFetch("/stats", coinRankingConfig, {
+        refreshInterval: 60 * 60 * 1000, // 1 hour
+        revalidateOnFocus: false,
+    });
 
     let cryptoData = data?.data;
 
