@@ -1,3 +1,13 @@
+@layer utilities {
+    @responsive {
+        .home-header {
+            background-image: url(../public/assests/home-header.svg);
+            background-position: right 3rem top;
+            background-size: cover;
+            @apply bg-no-repeat;
+        }
+    }
+}
 .home {
     & > * {
         @apply py-10;
@@ -7,15 +17,20 @@
         }
     }
     &__header {
-        @apply px-3 sm:px-5 md:px-10 lg:px-20 md:justify-center;
+        @apply px-3 sm:px-5 md:px-10 lg:px-20;
 
-        @apply min-h-[calc(100vh-64px)] flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat;
+        @apply flex flex-col justify-center;
 
-        background-image: url(../public/gifs/homeHeader.gif);
-        clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+        @apply min-h-[80vh];
+
+        @apply md:home-header;
+
+        & > * {
+            @apply max-w-lg;
+        }
 
         &-para {
-            @apply mt-5 text-white-primary text-opacity-75;
+            @apply mt-5 text-white-primary text-opacity-75 text-left;
         }
 
         &-fig {
@@ -24,7 +39,7 @@
     }
 
     &__features {
-        @apply pt-52 pb-10 -mt-44;
+        @apply pb-10 pt-10;
 
         &-header {
             @apply mb-10;
