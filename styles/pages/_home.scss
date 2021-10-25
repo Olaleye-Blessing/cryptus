@@ -1,7 +1,7 @@
 @layer utilities {
     @responsive {
         .home-header {
-            background-image: url(../public/assests/home-header.svg);
+            background-image: url(/assests/home-header.svg);
             background-position: right 3rem top;
             background-size: cover;
             @apply bg-no-repeat;
@@ -54,17 +54,17 @@
 
             &:first-child {
                 figure {
-                    background-image: url(../assests/svg/available.svg);
+                    background-image: url(/assests/svg/available.svg);
                 }
             }
             &:nth-child(2) {
                 figure {
-                    background-image: url(../assests/svg/secured.svg);
+                    background-image: url(/assests/svg/secured.svg);
                 }
             }
             &:nth-child(3) {
                 figure {
-                    background-image: url(../assests/svg/organized.svg);
+                    background-image: url(/assests/svg/organized.svg);
                 }
             }
 
