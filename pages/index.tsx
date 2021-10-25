@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Image from "next/image";
+import Head from "next/head";
 
 import { coinRankingConfig } from "../services/coinRanking";
 import { Coins, Exchanges, HomeStats, News, Nfts } from "../components";
@@ -22,6 +22,21 @@ const Home: NextPage = () => {
 
     return (
         <>
+            <Head>
+                <meta
+                    name="keywords"
+                    content="cryptocurrency, crypto, cryptocurrency news, nfts, exchanges"
+                />
+                <meta
+                    name="description"
+                    content="Get information about cryptocurrencies,
+                    cryptocurrencies' news, nfts and exchanges"
+                />
+                <title>
+                    CRYPTUS | Home of crypturrencies, nfts, exchanges and crypto
+                    news
+                </title>
+            </Head>
             <header className="home__header">
                 <h1 className="home__header-head">
                     Let&apos;s Make Better Life With New{" "}

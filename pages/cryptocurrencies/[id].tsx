@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { NextPage } from "next";
 import { NextRouter, useRouter } from "next/router";
 import { useState } from "react";
@@ -55,50 +56,71 @@ const CryptoDetail: NextPage = () => {
     }
 
     return (
-        <main className="cryptoDetail">
-            <header className="cryptoDetail__header">
+        <>
+            <Head>
+                <meta
+                    content="Cryptocurrencies' price, Bitcoin Trading, Ethereum price trend, BNB, CZ, BTC price, LTC price"
+                    name="keywords"
+                />
+                <meta
+                    content="Cryptus cryptocurrency market - The easiest way to know the last prices, coin market cap."
+                    name="description"
+                />
+                <title>
+                    {coinDetailLoading
+                        ? "Loading..."
+                        : coinDetailError
+                        ? "Error..."
+                        : `${coinDetail.name} details`}
+                </title>
+            </Head>
+            <main className="cryptoDetail">
+                <header className="cryptoDetail__header">
+                    {coinDetailLoading ? (
+                        <div>Loading...</div>
+                    ) : coinDetailError ? (
+                        <div>Error...</div>
+                    ) : (
+                        <>
+                            <h1>{coinDetail?.name}&apos;s Price</h1>
+                            <p>
+                                {coinDetail?.name} history price in US Dollars
+                            </p>
+                        </>
+                    )}
+                </header>
+                <CoinHistory
+                    timeframe={timeframe}
+                    selectedTimeFrame={selectedTimeFrame}
+                    setSelectedTimeFrame={setSelectedTimeFrame}
+                    coinHistoryLoading={coinHistoryLoading}
+                    coinHistoryError={coinHistoryError}
+                    coinGraph={coinGraph}
+                />
                 {coinDetailLoading ? (
                     <div>Loading...</div>
                 ) : coinDetailError ? (
                     <div>Error...</div>
                 ) : (
-                    <>
-                        <h1>{coinDetail?.name}&apos;s Price</h1>
-                        <p>{coinDetail?.name} history price in US Dollars</p>
-                    </>
+                    <aside className="cryptoDetail__aside">
+                        <div className="cryptoDetail__stats-cont">
+                            {coinStats.length > 0 && (
+                                <CryptoStat
+                                    title={`${coinDetail.name} Main Statistics`}
+                                    statistics={coinStats}
+                                />
+                            )}
+                            {otherStats.length > 0 && (
+                                <CryptoStat
+                                    title={`${coinDetail.name} Other Statistics`}
+                                    statistics={otherStats}
+                                />
+                            )}
+                        </div>
+                    </aside>
                 )}
-            </header>
-            <CoinHistory
-                timeframe={timeframe}
-                selectedTimeFrame={selectedTimeFrame}
-                setSelectedTimeFrame={setSelectedTimeFrame}
-                coinHistoryLoading={coinHistoryLoading}
-                coinHistoryError={coinHistoryError}
-                coinGraph={coinGraph}
-            />
-            {coinDetailLoading ? (
-                <div>Loading...</div>
-            ) : coinDetailError ? (
-                <div>Error...</div>
-            ) : (
-                <aside className="cryptoDetail__aside">
-                    <div className="cryptoDetail__stats-cont">
-                        {coinStats.length > 0 && (
-                            <CryptoStat
-                                title={`${coinDetail.name} Main Statistics`}
-                                statistics={coinStats}
-                            />
-                        )}
-                        {otherStats.length > 0 && (
-                            <CryptoStat
-                                title={`${coinDetail.name} Other Statistics`}
-                                statistics={otherStats}
-                            />
-                        )}
-                    </div>
-                </aside>
-            )}
-        </main>
+            </main>
+        </>
     );
 };
 
