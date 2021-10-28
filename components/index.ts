@@ -13,3 +13,4 @@ export { default as Exchanges } from "./Exchanges";
 export { default as Exchange } from "./Exchange";
 export { default as CoinHistory } from "./CoinHistory";
 export { default as LineChart } from "./LineChart";
+export { default as HomeContainer } from "./HomeContainer";
