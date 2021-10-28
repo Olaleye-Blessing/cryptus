@@ -25,8 +25,11 @@ const Coins: FC<coins> = ({ numberOfCoins, showLoadMore }) => {
     };
 
     if (coins && searchTerm) {
-        coins = coins.filter((coin: ICrypto) =>
-            coin.name.toLowerCase().includes(searchTerm.toLowerCase().trim())
+        let trimedSearchTerm: string = searchTerm.toLowerCase().trim();
+        coins = coins.filter(
+            (coin: ICrypto) =>
+                coin.name.toLowerCase().includes(trimedSearchTerm) ||
+                coin.symbol.toLowerCase().includes(trimedSearchTerm)
         );
     }
 

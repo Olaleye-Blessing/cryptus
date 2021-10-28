@@ -11,6 +11,7 @@ const nfts: FC = () => {
                     name="description"
                     content="List of nfts, rare digital items and crypto collectibles"
                 />
+                <title>Nfts | Cryptus</title>
             </Head>
             <main className="nfts-page">
                 <Nfts numberOfNfts={50} showLoadMore={false} />

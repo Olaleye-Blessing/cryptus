@@ -28,6 +28,7 @@ export interface Cryptocurrency {
     volume: number;
     marketCap: number;
     price: number;
+    symbol: string;
 }
 
 export interface CryptoStat {
