@@ -1,17 +1,16 @@
 import millify from "millify";
 import { FC } from "react";
+import useFetch from "../hooks/useFetch";
+import { coinRankingConfig } from "../services/coinRanking";
 
-interface homestats {
-    cryptoStatLoading: boolean;
-    cryptoStatError: any;
-    cryptoData: any;
-}
+const HomeStats: FC = () => {
+    let { data, loading, error } = useFetch("/stats", coinRankingConfig, {
+        refreshInterval: 60 * 60 * 1000, // refetch stats after 1hr
+        revalidateOnFocus: false,
+    });
 
-const HomeStats: FC<homestats> = ({
-    cryptoStatLoading,
-    cryptoStatError,
-    cryptoData,
-}) => {
+    let cryptoData = data?.data;
+
     return (
         <section className="home__stats-cont">
             <div className="home__section-cont">
@@ -21,9 +20,9 @@ const HomeStats: FC<homestats> = ({
                     </div>
                     <h2 className="home__section-head">Global Crypto Stats</h2>
                 </header>
-                {cryptoStatLoading ? (
+                {loading ? (
                     <div>Loading...</div>
-                ) : cryptoStatError ? (
+                ) : error ? (
                     <div>Error...</div>
                 ) : (
                     <ul className="home__stats">

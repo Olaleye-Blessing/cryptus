@@ -1,25 +1,19 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import { coinRankingConfig } from "../services/coinRanking";
-import { Coins, Exchanges, HomeStats, News, Nfts } from "../components";
+import {
+    Coins,
+    Exchanges,
+    HomeStats,
+    News,
+    Nfts,
+    HomeContainer,
+} from "../components";
 import { homeFeatures } from "../helpers/homeFeatures";
 import secured from "./../assests/svg/secured.svg";
 import homeBg from "./../assests/svg/home_header.svg";
-import useFetch from "../hooks/useFetch";
 
 const Home: NextPage = () => {
-    let {
-        data,
-        loading: cryptoStatLoading,
-        error: cryptoStatError,
-    } = useFetch("/stats", coinRankingConfig, {
-        refreshInterval: 60 * 60 * 1000, // 1 hour
-        revalidateOnFocus: false,
-    });
-
-    let cryptoData = data?.data;
-
     return (
         <>
             <Head>
@@ -65,31 +59,19 @@ const Home: NextPage = () => {
                         ))}
                     </ul>
                 </section>
-                <HomeStats
-                    cryptoData={cryptoData}
-                    cryptoStatError={cryptoStatError}
-                    cryptoStatLoading={cryptoStatLoading}
-                />
-                <section className="home__coins coins__cont">
-                    <div className="home__section-cont">
-                        <Coins numberOfCoins={10} showLoadMore={true} />
-                    </div>
-                </section>
-                <section className="home__news news__cont">
-                    <div className="home__section-cont">
-                        <News newsAmount={10} showLoadMore={true} />
-                    </div>
-                </section>
-                <section className="home__nfts nfts__cont">
-                    <div className="home__section-cont">
-                        <Nfts numberOfNfts={10} showLoadMore={true} />
-                    </div>
-                </section>
-                <section className="home__exchanges exchanges__cont">
-                    <div className="home__section-cont">
-                        <Exchanges numberOfExchanges={10} showLoadMore={true} />
-                    </div>
-                </section>
+                <HomeStats />
+                <HomeContainer childrenClass="coins__cont">
+                    <Coins numberOfCoins={10} showLoadMore={true} />
+                </HomeContainer>
+                <HomeContainer childrenClass="news__cont">
+                    <News newsAmount={10} showLoadMore={true} />
+                </HomeContainer>
+                <HomeContainer childrenClass="nfts__cont">
+                    <Nfts numberOfNfts={10} showLoadMore={true} />
+                </HomeContainer>
+                <HomeContainer childrenClass="exchanges__cont">
+                    <Exchanges numberOfExchanges={10} showLoadMore={true} />
+                </HomeContainer>
             </main>
         </>
     );

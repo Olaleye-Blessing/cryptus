@@ -1,5 +1,14 @@
+@layer utilities {
+    @responsive {
+        .nfts-grid {
+            @apply grid justify-between gap-x-10 gap-y-8;
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        }
+    }
+}
+
 .nfts {
-    @apply px-3 sm:flex sm:flex-wrap;
+    @apply sm:nfts-grid;
 
     &-page {
         @apply px-3 mt-5 mb-10 sm:px-5 md:px-10 lg:px-20;
@@ -7,10 +16,10 @@
 }
 
 .nft {
-    @apply mx-auto mb-6 w-full max-w-xs;
+    @apply mx-auto mb-6 w-full max-w-xs sm:mx-0 overflow-hidden;
 
     &__link {
-        @apply rounded-md border border-white-primary border-opacity-10 hover:text-current hover:border-opacity-40 w-full;
+        @apply rounded-md border border-white-primary border-opacity-10 hover:text-current hover:border-opacity-40 w-full h-full overflow-hidden;
     }
 
     &__figure {
