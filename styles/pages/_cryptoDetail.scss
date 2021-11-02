@@ -15,6 +15,20 @@
         @apply text-center mb-5;
     }
 
+    &__history {
+        &-header {
+            @apply sm:flex sm:justify-between;
+        }
+
+        &-others {
+            @apply mt-2 sm:mt-0;
+        }
+
+        &-form {
+            @apply max-w-[10rem];
+        }
+    }
+
     &__timeframe {
         @apply flex items-center justify-start space-x-3;
         button {
