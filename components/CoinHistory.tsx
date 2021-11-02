@@ -1,5 +1,6 @@
 import { Dispatch, FC, SetStateAction } from "react";
 import { LineChart } from ".";
+import { formatTimeFrame } from "../helpers/formatCoinHistoryTimeFrame";
 import { CoinHistory as CoinHistoryProps } from "./../typescript/Interfaces";
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
     coinHistoryError: any;
     coinGraph: CoinHistoryProps;
 }
+
 const CoinHistory: FC<Props> = ({
     timeframe,
     selectedTimeFrame,
@@ -24,19 +26,10 @@ const CoinHistory: FC<Props> = ({
 
         let { change, history } = coinGraph;
 
-        let timeInterval: string[] = [];
-
-        if (selectedTimeFrame === "24h") {
-            timeInterval = history.map(({ timestamp }) =>
-                new Date(timestamp).toLocaleTimeString()
-            );
-        } else {
-            timeInterval = history.map((t) =>
-                new Date(t.timestamp).toLocaleDateString()
-            );
-        }
-
-        let prices = history.map((period) => period.price);
+        let { prices, timeInterval } = formatTimeFrame(
+            history,
+            selectedTimeFrame
+        );
 
         return (
             <figure className="cryptoDetail__graph">
