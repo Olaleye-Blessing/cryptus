@@ -21,7 +21,7 @@ const CoinHistory: FC<Props> = ({
     coinGraph,
 }) => {
     const displayGraph = () => {
-        if (coinHistoryLoading) return <div>Loading...</div>;
+        if (coinHistoryLoading) return <div>Loading Graph...</div>;
         if (coinHistoryError) return <div>Error..</div>;
 
         let { change, history } = coinGraph;
@@ -39,26 +39,7 @@ const CoinHistory: FC<Props> = ({
         );
     };
 
-    return (
-        <section>
-            <header>
-                <div className="cryptoDetail__timeframe">
-                    {timeframe.map((time) => (
-                        <button
-                            key={time}
-                            className={`${
-                                time === selectedTimeFrame ? "active" : ""
-                            }`}
-                            onClick={(e) => setSelectedTimeFrame(time)}
-                        >
-                            {time}
-                        </button>
-                    ))}
-                </div>
-            </header>
-            {displayGraph()}
-        </section>
-    );
+    return <>{displayGraph()}</>;
 };
 
 export default CoinHistory;

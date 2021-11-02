@@ -1,19 +1,31 @@
 import Head from "next/head";
 import { NextPage } from "next";
 import { NextRouter, useRouter } from "next/router";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
-import { CryptoStat, CoinHistory } from "../../components";
+import { CryptoStat, CoinHistory, CoinHistoryHeader } from "../../components";
 import { populateCryptoStat } from "../../helpers/populateCryptoStat";
 import { Stat } from "../../typescript/Interfaces";
 import useFetch from "../../hooks/useFetch";
 import { coinRankingConfig } from "../../services/coinRanking";
 
 const CryptoDetail: NextPage = () => {
-    let { query }: NextRouter = useRouter();
+    let router: NextRouter = useRouter();
+    let { query } = router;
+
     let coinId: string | undefined | string[] = query?.id;
+    const [selectedCoinId, setSelectedCoinId] = useState(coinId);
 
     const [selectedTimeFrame, setSelectedTimeFrame] = useState<string>("24h");
+
+    const changeCoinQuery = ({ target }: ChangeEvent<HTMLSelectElement>) => {
+        let { value } = target;
+        setSelectedCoinId(value);
+        query = { ...query, id: value };
+        router.push({
+            query,
+        });
+    };
 
     let {
         data,
@@ -89,14 +101,23 @@ const CryptoDetail: NextPage = () => {
                         </>
                     )}
                 </header>
-                <CoinHistory
-                    timeframe={timeframe}
-                    selectedTimeFrame={selectedTimeFrame}
-                    setSelectedTimeFrame={setSelectedTimeFrame}
-                    coinHistoryLoading={coinHistoryLoading}
-                    coinHistoryError={coinHistoryError}
-                    coinGraph={coinGraph}
-                />
+                <section className="cryptoDetail__history">
+                    <CoinHistoryHeader
+                        timeframe={timeframe}
+                        selectedTimeFrame={selectedTimeFrame}
+                        setSelectedTimeFrame={setSelectedTimeFrame}
+                        selectedCoinId={selectedCoinId}
+                        handleCoinChange={changeCoinQuery}
+                    />
+                    <CoinHistory
+                        timeframe={timeframe}
+                        selectedTimeFrame={selectedTimeFrame}
+                        setSelectedTimeFrame={setSelectedTimeFrame}
+                        coinHistoryLoading={coinHistoryLoading}
+                        coinHistoryError={coinHistoryError}
+                        coinGraph={coinGraph}
+                    />
+                </section>
                 {coinDetailLoading ? (
                     <div>Loading...</div>
                 ) : coinDetailError ? (
