@@ -1,37 +1,39 @@
 {
-    "name": "cryptus",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "@types/react-icons": "^3.0.0",
-        "api": "^3.4.2",
-        "axios": "^0.23.0",
-        "chart.js": "^3.5.1",
-        "html-react-parser": "^1.4.0",
-        "millify": "^4.0.0",
-        "next": "11.1.2",
-        "postcss-import": "^14.0.2",
-        "react": "17.0.2",
-        "react-chartjs-2": "^3.1.1",
-        "react-dom": "17.0.2",
-        "react-icons": "^4.3.1",
-        "sass": "^1.42.1",
-        "swr": "^1.0.1"
-    },
-    "devDependencies": {
-        "@types/react": "17.0.27",
-        "autoprefixer": "^10.2.6",
-        "eslint": "7.32.0",
-        "eslint-config-next": "11.1.2",
-        "postcss-easy-import": "^3.0.0",
-        "postcss-nested": "^5.0.6",
-        "tailwindcss": "^2.2.4",
-        "typescript": "4.4.3"
-    }
+  "name": "cryptus",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier:format": "npx prettier --write **/*.{js,jsx,ts,tsx}"
+  },
+  "dependencies": {
+    "@types/react-icons": "^3.0.0",
+    "api": "^3.4.2",
+    "axios": "^0.23.0",
+    "chart.js": "^3.5.1",
+    "html-react-parser": "^1.4.0",
+    "millify": "^4.0.0",
+    "next": "11.1.2",
+    "postcss-import": "^14.0.2",
+    "react": "17.0.2",
+    "react-chartjs-2": "^3.1.1",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "sass": "^1.42.1",
+    "swr": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.27",
+    "autoprefixer": "^10.2.6",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-nested": "^5.0.6",
+    "prettier": "2.7.1",
+    "tailwindcss": "^2.2.4",
+    "typescript": "4.4.3"
+  }
 }
