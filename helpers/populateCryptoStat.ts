@@ -21,7 +21,8 @@ export const populateCryptoStat = (
     {
       text: "24h vol.",
       icon: GiWeightLiftingUp,
-      value: millify(coinDetail.volume),
+      // value: millify(coinDetail.volume),
+      value: millify(coinDetail["24hVolume"]),
     },
     {
       text: "Market Cap",
@@ -44,7 +45,8 @@ export const populateCryptoStat = (
     {
       text: "Total Supply",
       icon: VscTypeHierarchySuper,
-      value: millify(coinDetail.totalSupply),
+      // value: millify(coinDetail.totalSupply),
+      value: millify(coinDetail.supply.total),
     },
     {
       text: "Website Url",

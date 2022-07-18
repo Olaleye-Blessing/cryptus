@@ -63,13 +63,13 @@ const Home: NextPage = () => {
           <Coins numberOfCoins={10} showLoadMore={true} />
         </HomeContainer>
         <HomeContainer childrenClass="news__cont">
-          <News newsAmount={10} showLoadMore={true} />
+          {/* <News newsAmount={10} showLoadMore={true} /> */}
         </HomeContainer>
         <HomeContainer childrenClass="nfts__cont">
-          <Nfts numberOfNfts={10} showLoadMore={true} />
+          {/* <Nfts numberOfNfts={10} showLoadMore={true} /> */}
         </HomeContainer>
         <HomeContainer childrenClass="exchanges__cont">
-          <Exchanges numberOfExchanges={10} showLoadMore={true} />
+          {/* <Exchanges numberOfExchanges={10} showLoadMore={true} /> */}
         </HomeContainer>
       </main>
     </>

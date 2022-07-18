@@ -67,7 +67,7 @@ const Coins: FC<coins> = ({ numberOfCoins, showLoadMore }) => {
           coins.length > 0 ? (
             <ul className="coins__lists">
               {coins.map((props: ICrypto) => {
-                return <Cryptocurrency key={props.id} {...props} />;
+                return <Cryptocurrency key={props.uuid} {...props} />;
               })}
             </ul>
           ) : (

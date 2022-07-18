@@ -12,7 +12,7 @@ interface Props {
   handleCoinChange: ChangeEventHandler<HTMLSelectElement>;
 }
 
-type OtherCoins = Pick<Cryptocurrency, "id" | "symbol">;
+type OtherCoins = Pick<Cryptocurrency, "uuid" | "symbol">;
 
 const CoinHistoryHeader: FC<Props> = ({
   timeframe,
@@ -25,9 +25,9 @@ const CoinHistoryHeader: FC<Props> = ({
 
   let coins: Cryptocurrency[] = data?.data.coins;
 
-  let coinsSeclection: OtherCoins[] = coins?.map(({ id, symbol }) => ({
-    id,
+  let coinsSeclection: OtherCoins[] = coins?.map(({ symbol, uuid }) => ({
     symbol,
+    uuid,
   }));
 
   return (
@@ -62,8 +62,8 @@ const CoinHistoryHeader: FC<Props> = ({
                   onChange={handleCoinChange}
                   className=""
                 >
-                  {coinsSeclection.map(({ id, symbol }) => (
-                    <option value={id} key={id}>
+                  {coinsSeclection.map(({ uuid, symbol }) => (
+                    <option value={uuid} key={uuid}>
                       {symbol}
                     </option>
                   ))}

@@ -27,6 +27,7 @@ const CoinHistory: FC<Props> = ({
     let { change, history } = coinGraph;
 
     let { prices, timeInterval } = formatTimeFrame(history, selectedTimeFrame);
+    // console.log({ prices, timeInterval, history, selectedTimeFrame });
 
     return (
       <figure className="cryptoDetail__graph">

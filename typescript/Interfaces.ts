@@ -22,13 +22,21 @@ export interface cryptodata {
 
 export interface Cryptocurrency {
   id: number;
+  uuid: string;
   rank: number;
   name: string;
   iconUrl: string;
   volume: number;
+  "24hVolume": number;
   marketCap: number;
   price: number;
   symbol: string;
+
+  coinrankingUrl: "https://coinranking.com/coin/Qwsogvtv82FCd+bitcoin-btc";
+  color: "#f7931A";
+  listedAt: 1330214400;
+  lowVolume: false;
+  tier: 1;
 }
 
 export interface CryptoStat {

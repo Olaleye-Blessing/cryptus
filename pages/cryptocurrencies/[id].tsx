@@ -38,7 +38,8 @@ const CryptoDetail: NextPage = () => {
     loading: coinHistoryLoading,
     error: coinHistoryError,
   } = useFetch(
-    coinId ? `/coin/${coinId}/history/${selectedTimeFrame}` : null,
+    // coinId ? `/coin/${coinId}/history/${selectedTimeFrame}` : null,
+    coinId ? `/coin/${coinId}/history?timePeriod=${selectedTimeFrame}` : null,
     coinRankingConfig
   );
 
@@ -54,11 +55,13 @@ const CryptoDetail: NextPage = () => {
   ];
 
   let coinDetail = data?.data?.coin;
+  // console.log({ coinDetail });
 
   let coinStats: Stat[] = [],
     otherStats: Stat[] = [];
 
   let coinGraph = coinHistory?.data;
+  // console.log({ coinGraph });
 
   // populate stat when there is data
   if (coinDetail) {
@@ -66,6 +69,8 @@ const CryptoDetail: NextPage = () => {
     coinStats = populated.coinStats;
     otherStats = populated.otherStats;
   }
+
+  // return null;
 
   return (
     <>

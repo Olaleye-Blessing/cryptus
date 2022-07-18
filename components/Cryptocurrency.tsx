@@ -6,17 +6,19 @@ import millify from "millify";
 
 const Cryptocurrency: FC<Iprops> = ({
   id,
+  uuid,
   rank,
   name,
   iconUrl,
   volume,
   marketCap,
   price,
+  "24hVolume": _24hVolume,
 }) => {
   return (
-    <li key={id} className={`coins__list`}>
+    <li className={`coins__list`}>
       <article>
-        <Link href={`/cryptocurrencies/${id}`}>
+        <Link href={`/cryptocurrencies/${uuid}`}>
           <a>
             <header className="coins__list-header">
               <h3>
@@ -37,7 +39,7 @@ const Cryptocurrency: FC<Iprops> = ({
                 Price: <span>{millify(price)}</span>
               </p>
               <p>
-                Volume: <span>{millify(volume)}</span>
+                Volume: <span>{millify(_24hVolume)}</span>
               </p>
               <p>
                 Market Cap: <span>{millify(marketCap)}</span>

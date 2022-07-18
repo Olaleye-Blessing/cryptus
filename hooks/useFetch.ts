@@ -17,7 +17,12 @@ const useFetch = (
   let { data, error } = useSWR<any, AxiosError>(
     fetchUrl,
     fetcher,
-    useSwrOptions
+    // useSwrOptions
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      // revalidateOnMount: false,
+    }
   );
 
   let loading: boolean = !data && !error;
