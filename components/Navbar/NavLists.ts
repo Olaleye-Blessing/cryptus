@@ -23,18 +23,18 @@ export const NavLists: NavList[] = [
     activeIcon: HiCurrencyDollar,
     path: "/cryptocurrencies",
   },
-  {
-    text: "Exchanges",
-    icon: RiExchangeBoxLine,
-    activeIcon: RiExchangeBoxFill,
-    path: "/exchanges",
-  },
-  {
-    text: "NFTs",
-    icon: HiOutlineAtSymbol,
-    activeIcon: HiAtSymbol,
-    path: "/nfts",
-  },
+  // {
+  //   text: "Exchanges",
+  //   icon: RiExchangeBoxLine,
+  //   activeIcon: RiExchangeBoxFill,
+  //   path: "/exchanges",
+  // },
+  // {
+  //   text: "NFTs",
+  //   icon: HiOutlineAtSymbol,
+  //   activeIcon: HiAtSymbol,
+  //   path: "/nfts",
+  // },
   {
     text: "News",
     icon: IoNewspaperOutline,

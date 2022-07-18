@@ -65,12 +65,12 @@ const Home: NextPage = () => {
         <HomeContainer childrenClass="news__cont">
           <News newsAmount={10} showLoadMore={true} />
         </HomeContainer>
-        <HomeContainer childrenClass="nfts__cont">
-          {/* <Nfts numberOfNfts={10} showLoadMore={true} /> */}
-        </HomeContainer>
-        <HomeContainer childrenClass="exchanges__cont">
-          {/* <Exchanges numberOfExchanges={10} showLoadMore={true} /> */}
-        </HomeContainer>
+        {/* <HomeContainer childrenClass="nfts__cont">
+          <Nfts numberOfNfts={10} showLoadMore={true} />
+        </HomeContainer> */}
+        {/* <HomeContainer childrenClass="exchanges__cont">
+          <Exchanges numberOfExchanges={10} showLoadMore={true} />
+        </HomeContainer> */}
       </main>
     </>
   );
